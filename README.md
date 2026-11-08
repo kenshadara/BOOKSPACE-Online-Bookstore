@@ -70,7 +70,7 @@ Berikut dokumentasi hasil pengerjaan dan tampilan website BOOKSPACE:
 ![Informasi Stok](03-stok.png)
 
 ### 4. Pemesanan
-![Pemesanan](04-pemesanan.png)
+![Pemesanan](04-checkout.png)
 
 ### 5. Daftar Pesanan
 ![Daftar Pesanan](05-daftar-pesanan.png)

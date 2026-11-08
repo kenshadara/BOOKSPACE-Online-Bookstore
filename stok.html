@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Stok - BOOKSPACE</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fc;
+            color: #17365d;
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+            background: #132f55;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #c5d7f0;
+            margin-bottom: 55px;
+        }
+
+        .menu-title {
+            color: #9db9dc;
+            font-size: 13px;
+            margin: 25px 10px 15px;
+            font-weight: bold;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 8px;
+            border-radius: 9px;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: #24558c;
+        }
+
+        .main {
+            flex: 1;
+            min-width: 0;
+            padding: 40px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 12px 0;
+            font-size: 30px;
+        }
+
+        .header p {
+            color: #70839d;
+        }
+
+        .summary {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            flex: 1;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+        }
+
+        .summary-card p {
+            color: #70839d;
+            margin-bottom: 12px;
+        }
+
+        .summary-card h2 {
+            font-size: 27px;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search {
+            width: 300px;
+            max-width: 100%;
+            padding: 13px 16px;
+            border: 1px solid #dce3ef;
+            border-radius: 9px;
+            outline: none;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            overflow-x: auto;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 750px;
+        }
+
+        th, td {
+            padding: 16px 12px;
+            text-align: left;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        th {
+            color: #70839d;
+            background: #f8faff;
+            font-size: 13px;
+        }
+
+        .cover {
+            width: 65px;
+            height: 85px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .book-name {
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .book-type {
+            font-size: 12px;
+            color: #70839d;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .available {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .low {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .empty {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        @media (max-width: 800px) {
+            .layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .main {
+                padding: 20px;
+            }
+
+            .summary {
+                flex-direction: column;
+            }
+
+            .toolbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">BOOKSPACE.</div>
+        <p class="subtitle">Online Bookstore</p>
+
+        <p class="menu-title">MENU UTAMA</p>
+
+        <a href="dashboard.html">▦ Dashboard</a>
+        <a href="stok.html" class="active">▤ Informasi Stok</a>
+        <a href="checkout.html">🛒 Pemesanan</a>
+        <a href="tracking.html">🚚 Tracking Pengiriman</a>
+
+        <p class="menu-title">LAINNYA</p>
+
+        <a href="checkout.html">▥ Laporan Pemesanan</a>
+        <a href="index.html" id="logoutButton">↪ Logout</a>
+
+    </aside>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main">
+
+        <header class="header">
+            <p style="color:#2869ae;font-weight:bold;">
+                MANAJEMEN BUKU
+            </p>
+
+            <h1>Informasi Stok Buku</h1>
+
+            <p>
+                Kelola dan pantau ketersediaan katalog buku BOOKSPACE.
+            </p>
+        </header>
+
+        <!-- RINGKASAN -->
+        <section class="summary">
+
+            <div class="summary-card">
+                <p>Total Judul Buku</p>
+                <h2 id="jumlahJudul">0</h2>
+            </div>
+
+            <div class="summary-card">
+                <p>Total Stok Buku</p>
+                <h2 id="jumlahStok">0</h2>
+            </div>
+
+            <div class="summary-card">
+                <p>Stok Hampir Habis</p>
+                <h2 id="stokMenipis">0</h2>
+            </div>
+
+            <div class="summary-card">
+                <p>Buku Habis</p>
+                <h2 id="stokHabis">0</h2>
+            </div>
+
+        </section>
+
+<!-- FORM TAMBAH BUKU -->
+<section class="table-container" style="margin-bottom:25px;">
+
+    <h2 style="margin-bottom:20px;">Tambah Buku Baru</h2>
+
+    <form id="formTambahBuku">
+
+        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:15px;">
+
+            <div>
+                <label>Kode Buku</label>
+                <input type="text" id="kodeBaru" class="search"
+                    placeholder="Contoh: TI2026" required>
+            </div>
+
+            <div>
+                <label>Nama Buku</label>
+                <input type="text" id="namaBaru" class="search"
+                    placeholder="Nama buku" required>
+            </div>
+
+            <div>
+                <label>Jenis Buku</label>
+                <input type="text" id="jenisBaru" class="search"
+                    placeholder="Contoh: Buku Ajar" required>
+            </div>
+
+            <div>
+                <label>Edisi</label>
+                <input type="number" id="edisiBaru" class="search"
+                    min="1" placeholder="Edisi buku" required>
+            </div>
+
+            <div>
+                <label>Harga</label>
+                <input type="text" id="hargaBaru" class="search"
+                    placeholder="Contoh: Rp 100.000" required>
+            </div>
+
+            <div>
+                <label>Jumlah Stok</label>
+                <input type="number" id="stokBaru" class="search"
+                    min="0" placeholder="Jumlah stok" required>
+            </div>
+
+            <div style="grid-column:1 / -1;">
+                <label>Lokasi Cover Buku</label>
+                <input type="text" id="coverBaru" class="search"
+                    placeholder="Contoh: img/buku_baru.jpg" required>
+            </div>
+
+        </div>
+
+        <button type="submit"
+            style="margin-top:20px; padding:13px 25px;
+            background:#24558c; color:white; border:none;
+            border-radius:8px; cursor:pointer;">
+            + Tambahkan Buku
+        </button>
+
+    </form>
+</section>
+
+        <!-- PENCARIAN -->
+        <div class="toolbar">
+            <h2>Katalog Buku</h2>
+
+            <input
+                type="text"
+                id="searchBook"
+                class="search"
+                placeholder="Cari judul atau kode buku..."
+            >
+        </div>
+
+        <!-- TABEL BUKU -->
+        <section class="table-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Cover Buku</th>
+                        <th>Informasi Buku</th>
+                        <th>Edisi</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="bookTableBody">
+                </tbody>
+            </table>
+
+            <p id="emptyMessage" style="display:none;padding:20px;">
+                Buku tidak ditemukan.
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- MENGHUBUNGKAN DATA -->
+<script src="js/data.js"></script>
+
+<script>
+
+    // Mengambil data katalog buku
+    const daftarBuku = dataKatalogBuku;
+
+    const bookTableBody =
+        document.getElementById("bookTableBody");
+
+    const searchBook =
+        document.getElementById("searchBook");
+
+    // Format tampilan buku
+    function tampilkanBuku(data) {
+
+        bookTableBody.innerHTML = "";
+
+        document.getElementById("emptyMessage").style.display =
+            data.length === 0 ? "block" : "none";
+
+        data.forEach(function(buku, index) {
+
+            const baris = document.createElement("tr");
+
+            let status = "";
+            let classStatus = "";
+
+            if (buku.stok === 0) {
+                status = "Habis";
+                classStatus = "empty";
+            } else if (buku.stok <= 50) {
+                status = "Hampir Habis";
+                classStatus = "low";
+            } else {
+                status = "Tersedia";
+                classStatus = "available";
+            }
+
+            const kolomNo = document.createElement("td");
+            kolomNo.textContent = index + 1;
+
+            const kolomCover = document.createElement("td");
+
+            const gambar = document.createElement("img");
+            gambar.src = buku.cover;
+            gambar.alt = buku.namaBarang;
+            gambar.className = "cover";
+
+            kolomCover.appendChild(gambar);
+
+            const kolomInfo = document.createElement("td");
+
+            const nama = document.createElement("div");
+            nama.className = "book-name";
+            nama.textContent = buku.namaBarang;
+
+            const jenis = document.createElement("div");
+            jenis.className = "book-type";
+            jenis.textContent =
+                buku.kodeBarang + " | " + buku.jenisBarang;
+
+            kolomInfo.appendChild(nama);
+            kolomInfo.appendChild(jenis);
+
+            const kolomEdisi = document.createElement("td");
+            kolomEdisi.textContent = buku.edisi;
+
+            const kolomHarga = document.createElement("td");
+            kolomHarga.textContent = buku.harga;
+
+            const kolomStok = document.createElement("td");
+            kolomStok.textContent = buku.stok + " buku";
+
+            const kolomStatus = document.createElement("td");
+
+            const badge = document.createElement("span");
+            badge.className = "status " + classStatus;
+            badge.textContent = status;
+
+            kolomStatus.appendChild(badge);
+
+            baris.appendChild(kolomNo);
+            baris.appendChild(kolomCover);
+            baris.appendChild(kolomInfo);
+            baris.appendChild(kolomEdisi);
+            baris.appendChild(kolomHarga);
+            baris.appendChild(kolomStok);
+            baris.appendChild(kolomStatus);
+
+            bookTableBody.appendChild(baris);
+
+        });
+    }
+
+    // Memperbarui statistik
+    function perbaruiStatistik() {
+
+        const totalStok = daftarBuku.reduce(
+            (total, buku) => total + buku.stok, 0
+        );
+
+        const hampirHabis = daftarBuku.filter(
+            buku => buku.stok > 0 && buku.stok <= 50
+        ).length;
+
+        const habis = daftarBuku.filter(
+            buku => buku.stok === 0
+        ).length;
+
+        document.getElementById("jumlahJudul").textContent =
+            daftarBuku.length;
+
+        document.getElementById("jumlahStok").textContent =
+            totalStok;
+
+        document.getElementById("stokMenipis").textContent =
+            hampirHabis;
+
+        document.getElementById("stokHabis").textContent =
+            habis;
+    }
+
+    // Fitur pencarian buku
+    searchBook.addEventListener("input", function() {
+
+        const kataKunci = searchBook.value.toLowerCase();
+
+        const hasil = daftarBuku.filter(function(buku) {
+
+            return buku.namaBarang.toLowerCase().includes(kataKunci) ||
+                   buku.kodeBarang.toLowerCase().includes(kataKunci);
+
+        });
+
+        tampilkanBuku(hasil);
+    });
+
+// Mengambil data buku tambahan dari Local Storage
+const bukuTambahan = JSON.parse(
+    localStorage.getItem("bukuTambahan") || "[]"
+);
+
+// Memasukkan buku tambahan ke katalog
+daftarBuku.push(...bukuTambahan);
+
+// Fitur tambah buku menggunakan DOM
+const formTambahBuku = document.getElementById("formTambahBuku");
+
+formTambahBuku.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const bukuBaru = {
+        kodeBarang: document.getElementById("kodeBaru").value.trim(),
+        namaBarang: document.getElementById("namaBaru").value.trim(),
+        jenisBarang: document.getElementById("jenisBaru").value.trim(),
+        edisi: Number(document.getElementById("edisiBaru").value),
+        harga: document.getElementById("hargaBaru").value.trim(),
+        stok: Number(document.getElementById("stokBaru").value),
+        cover: document.getElementById("coverBaru").value.trim()
+    };
+
+    // Memeriksa kode buku agar tidak duplikat
+    const sudahAda = daftarBuku.some(
+        buku => buku.kodeBarang.toLowerCase() ===
+                bukuBaru.kodeBarang.toLowerCase()
+    );
+
+    if (sudahAda) {
+        alert("Kode buku sudah terdaftar!");
+        return;
+    }
+
+    // Menambahkan buku ke katalog
+    daftarBuku.push(bukuBaru);
+
+    // Menyimpan buku tambahan
+    bukuTambahan.push(bukuBaru);
+
+    localStorage.setItem(
+        "bukuTambahan",
+        JSON.stringify(bukuTambahan)
+    );
+
+    // Memperbarui tabel dan statistik
+    tampilkanBuku(daftarBuku);
+    perbaruiStatistik();
+
+    // Mengosongkan formulir
+    formTambahBuku.reset();
+
+    alert("Buku berhasil ditambahkan!");
+});
+
+    // Logout
+    document.getElementById("logoutButton")
+        .addEventListener("click", function(event) {
+
+            event.preventDefault();
+
+            localStorage.removeItem("bookspaceUser");
+
+            window.location.href = "index.html";
+        });
+
+    // Menjalankan fungsi awal
+    tampilkanBuku(daftarBuku);
+    perbaruiStatistik();
+
+</script>
+
+</body>
+</html>

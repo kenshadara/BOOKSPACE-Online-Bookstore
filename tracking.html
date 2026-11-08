@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pengiriman - BOOKSPACE</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <h2>BOOKSPACE<span>.</span></h2>
+                <p>Online Bookstore</p>
+            </div>
+
+            <p class="menu-title">MENU UTAMA</p>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html">▦ Dashboard</a>
+                <a href="stok.html">▤ Informasi Stok</a>
+                <a href="checkout.html">🛒 Pemesanan</a>
+                <a href="tracking.html" class="active">🚚 Tracking Pengiriman</a>
+            </nav>
+
+            <p class="menu-title">LAINNYA</p>
+
+            <nav class="sidebar-menu">
+                <a href="history.html">▥ Laporan Pemesanan</a>
+                <a href="#" id="logoutButton">↪ Logout</a>
+            </nav>
+
+        </aside>
+
+        <!-- KONTEN UTAMA -->
+        <main class="main-content">
+
+            <header class="page-header">
+                <span class="section-label">PENGIRIMAN</span>
+                <h1>Tracking Pengiriman</h1>
+                <p>Pantau status dan perjalanan pesanan buku Anda.</p>
+            </header>
+
+            <!-- FORM PENCARIAN -->
+            <section class="content-card">
+
+                <h2>Lacak Pesanan</h2>
+
+                <form id="trackingForm">
+
+                    <div class="form-group">
+                        <label for="nomorDO">Nomor Delivery Order (DO)</label>
+
+                        <input
+                            type="text"
+                            id="nomorDO"
+                            placeholder="Contoh: 20230012"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        Cari Pesanan
+                    </button>
+
+                </form>
+
+            </section>
+
+            <!-- HASIL TRACKING -->
+            <section class="content-card tracking-result"
+                id="trackingResult" hidden>
+
+                <h2>Informasi Pengiriman</h2>
+
+                <div id="trackingInfo"></div>
+
+                <h3>Riwayat Perjalanan Paket</h3>
+
+                <div id="trackingHistory"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

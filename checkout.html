@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan - BOOKSPACE</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2>BOOKSPACE<span>.</span></h2>
+                <p>Online Bookstore</p>
+            </div>
+
+            <p class="menu-title">MENU UTAMA</p>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html">▦ Dashboard</a>
+                <a href="stok.html">▤ Informasi Stok</a>
+                <a href="checkout.html" class="active">🛒 Pemesanan</a>
+                <a href="tracking.html">🚚 Tracking Pengiriman</a>
+            </nav>
+
+            <p class="menu-title">LAINNYA</p>
+
+            <nav class="sidebar-menu">
+                <a href="history.html">▥ Laporan Pemesanan</a>
+                <a href="#" id="logoutButton">↪ Logout</a>
+            </nav>
+        </aside>
+
+        <!-- KONTEN UTAMA -->
+        <main class="main-content">
+
+            <header class="page-header">
+                <div>
+                    <span class="section-label">TRANSAKSI</span>
+                    <h1>Pemesanan Buku</h1>
+                    <p>Silakan pilih buku dan lengkapi data pemesanan.</p>
+                </div>
+            </header>
+
+            <!-- FORM PEMESANAN -->
+            <section class="content-card">
+
+                <h2>Formulir Pemesanan</h2>
+
+                <form id="checkoutForm">
+
+                    <div class="form-group">
+                        <label for="namaPembeli">Nama Pembeli</label>
+                        <input
+                            type="text"
+                            id="namaPembeli"
+                            placeholder="Masukkan nama pembeli"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alamatPembeli">Alamat Pengiriman</label>
+                        <textarea
+                            id="alamatPembeli"
+                            placeholder="Masukkan alamat lengkap"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nomorTelepon">Nomor Telepon</label>
+                        <input
+                            type="tel"
+                            id="nomorTelepon"
+                            placeholder="Masukkan nomor telepon"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pilihBuku">Pilih Buku</label>
+                        <select id="pilihBuku" required>
+                            <option value="">-- Pilih Buku --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jumlahBuku">Jumlah Pembelian</label>
+                        <input
+                            type="number"
+                            id="jumlahBuku"
+                            min="1"
+                            value="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="order-summary">
+                        <h3>Ringkasan Pembayaran</h3>
+
+                        <p>
+                            Harga Buku:
+                            <strong id="hargaBuku">Rp 0</strong>
+                        </p>
+
+                        <p>
+                            Total Pembayaran:
+                            <strong id="totalHarga">Rp 0</strong>
+                        </p>
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        Buat Pesanan
+                    </button>
+
+                </form>
+
+            </section>
+<!-- DAFTAR PESANAN -->
+<section class="content-card" style="margin-top:25px;">
+
+    <h2>Daftar Pesanan</h2>
+    <p style="margin:10px 0 20px;">
+        Pilih pesanan untuk melihat atau mengubah data pemesanan.
+    </p>
+
+    <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse;">
+            <thead>
+                <tr>
+                    <th style="padding:12px;">Nomor DO</th>
+                    <th style="padding:12px;">Nama Pembeli</th>
+                    <th style="padding:12px;">Nama Buku</th>
+                    <th style="padding:12px;">Total</th>
+                    <th style="padding:12px;">Aksi</th>
+                </tr>
+            </thead>
+
+            <tbody id="daftarPesananBody"></tbody>
+        </table>
+    </div>
+
+    <p id="pesananKosong" style="margin-top:15px;">
+        Belum ada pesanan.
+    </p>
+
+</section>
+
+        </main>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

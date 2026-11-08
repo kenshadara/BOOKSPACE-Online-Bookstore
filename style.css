@@ -1,0 +1,376 @@
+
+/* ======================================
+   BOOKSPACE - GLOBAL STYLE
+====================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #f3f6fc;
+    color: #142f55;
+    min-height: 100vh;
+}
+
+/* ======================================
+   LOGIN PAGE
+====================================== */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(20, 47, 85, 0.10);
+}
+
+.login-logo {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.login-card h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.login-card p {
+    text-align: center;
+    color: #71839c;
+    margin-bottom: 28px;
+}
+
+.login-card label {
+    display: block;
+    font-weight: 600;
+    margin: 15px 0 7px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce3ed;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.login-card input:focus {
+    border-color: #2461a5;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 22px;
+    background: #17365f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-card button:hover {
+    background: #24558c;
+}
+
+/* ======================================
+   FOOTER
+====================================== */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #8798ae;
+    font-size: 13px;
+}
+
+
+/* ======================================
+   BOOKSPACE - HALAMAN PEMESANAN
+====================================== */
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f3f6fc;
+}
+
+.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: #15345b;
+    color: white;
+    padding: 25px 20px;
+    box-sizing: border-box;
+}
+
+.sidebar-brand h2 {
+    color: white;
+    margin: 0;
+    font-size: 25px;
+}
+
+.sidebar-brand h2 span {
+    color: #65a9ff;
+}
+
+.sidebar-brand p {
+    color: #c5d8f2;
+    margin-top: 8px;
+}
+
+.menu-title {
+    color: #9dbce0;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 45px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.sidebar-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+    background: #28578d;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    min-width: 0;
+}
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.section-label {
+    color: #2869b5;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.page-header h1 {
+    color: #15345b;
+    margin: 12px 0;
+    font-size: 30px;
+}
+
+.page-header p {
+    color: #7185a1;
+}
+
+.content-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    max-width: 850px;
+}
+
+.content-card h2 {
+    color: #15345b;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #15345b;
+    margin-bottom: 9px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce4ef;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #2869b5;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.order-summary {
+    background: #f3f7fd;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+.order-summary h3 {
+    color: #15345b;
+    margin-top: 0;
+}
+
+.order-summary p {
+    display: flex;
+    justify-content: space-between;
+    color: #536b89;
+    margin: 15px 0;
+}
+
+.order-summary strong {
+    color: #15345b;
+}
+
+.primary-button {
+    width: 100%;
+    padding: 15px;
+    background: #193c68;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: #28578d;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}
+
+
+/* ======================================
+   BOOKSPACE - TRACKING PENGIRIMAN
+====================================== */
+
+.tracking-result {
+    margin-top: 25px;
+}
+
+.tracking-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tracking-info-item {
+    background: #f3f7fd;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.tracking-info-item span {
+    display: block;
+    color: #7185a1;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.tracking-info-item strong {
+    color: #15345b;
+}
+
+.tracking-status {
+    display: inline-block;
+    background: #d9fbe8;
+    color: #16834a;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.tracking-timeline {
+    border-left: 3px solid #2869b5;
+    padding-left: 22px;
+    margin: 25px 0 10px 10px;
+}
+
+.tracking-event {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.tracking-event::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 4px;
+    width: 13px;
+    height: 13px;
+    background: #2869b5;
+    border-radius: 50%;
+}
+
+.tracking-event strong {
+    color: #15345b;
+}
+
+.tracking-event p {
+    color: #7185a1;
+    margin: 7px 0;
+}
+
+@media (max-width: 600px) {
+    .tracking-info-grid {
+        grid-template-columns: 1fr;
+    }
+}

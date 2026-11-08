@@ -64,7 +64,7 @@ Berikut dokumentasi hasil pengerjaan dan tampilan website BOOKSPACE:
 ![Login](01-login.png)
 
 ### 2. Dashboard
-![Dashboard](02-dashboard.png)
+![Dashboard](02-dashbboard.png)
 
 ### 3. Informasi Stok
 ![Informasi Stok](03-stok.png)

@@ -61,22 +61,22 @@ tugas-uts-web1/
 Berikut dokumentasi hasil pengerjaan dan tampilan website BOOKSPACE:
 
 ### 1. Halaman Login
-![Login](screenshots/01-login.png)
+![Login](01-login.png)
 
 ### 2. Dashboard
-![Dashboard](screenshots/02-dashboard.png)
+![Dashboard](02-dashboard.png)
 
 ### 3. Informasi Stok
-![Informasi Stok](screenshots/03-stok.png)
+![Informasi Stok](03-stok.png)
 
 ### 4. Pemesanan
-![Pemesanan](screenshots/04-pemesanan.png)
+![Pemesanan](04-pemesanan.png)
 
 ### 5. Daftar Pesanan
-![Daftar Pesanan](screenshots/05-daftar-pesanan.png)
+![Daftar Pesanan](05-daftar-pesanan.png)
 
 ### 6. Tracking Pengiriman
-![Tracking](screenshots/06-tracking.png)
+![Tracking](06-tracking.png)
 
 ## 7. Video Penjelasan Proyek
 

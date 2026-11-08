@@ -80,8 +80,8 @@ Berikut dokumentasi hasil pengerjaan dan tampilan website BOOKSPACE:
 
 ## 7. Video Penjelasan Proyek
 
-Link YouTube: **(Tambahkan link video setelah video diunggah)**
+Link YouTube: [(https://youtu.be/75PHTnouIBs?si=4iUHWMZO56PBNqzv)]
 
 ## 8. Repository GitHub
 
-Link Repository: **(Tambahkan link repository setelah proyek diunggah ke GitHub)**
+Link Repository: [(https://github.com/kenshadara/BOOKSPACE-Online-Bookstore.git)]
